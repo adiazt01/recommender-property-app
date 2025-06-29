@@ -14,16 +14,8 @@ export function PropertyRecommendedCard({
                 <div className="flex items-start justify-between">
                     <p className="card-title">{property.title}</p>
                     <div className="ml-2 flex flex-col items-end gap-1">
-                        <div className="badge badge-primary">{matchPercentage}% match</div>
+                        <div className="badge badge-primary">{matchPercentage}%</div>
                     </div>
-                </div>
-                {/* Razones de la recomendación */}
-                <div className="flex flex-wrap gap-1">
-                    {Object.entries(reasons).map(([key, value], i) => (
-                        <div key={i} className="badge badge-sm">
-                            {value}
-                        </div>
-                    ))}
                 </div>
 
                 {/* Breakdown de scores */}

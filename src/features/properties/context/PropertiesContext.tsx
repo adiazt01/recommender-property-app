@@ -1,9 +1,9 @@
 import { createContext, useContext, useMemo, useState, useEffect } from 'react'
 import { getProperties } from '../../properties/services/propertyService'
-import { SmartRecommendationEngine } from '../../../utils/recomendation.util'
 import { usePagination } from '../../../features/core/hooks/usePagination'
 import { usePropertyFilters } from '../hooks/usePropertiesFilters'
 import type { Property } from '../interface/PropertyInterface'
+import { SmartRecommendationEngine } from '@core/algorithms/recommendationAlgorithm'
 
 interface PropertiesContextProps {
   properties: Property[]

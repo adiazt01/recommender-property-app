@@ -1,9 +1,9 @@
+import { RECOMMENDATION_REASON_KEYS } from "@core/constants/recommendationKeysConstants"
 import { PRICE_BONUS, PRICE_BONUS_RANGE, PRICE_SIMILARITY_THRESHOLD, RECOMMENDATION_WEIGHTS, ROOMS_SIMILARITY_THRESHOLD, SIZE_SIMILARITY_THRESHOLD } from "@core/constants/recommendationWeightConstants"
 import { ROOMS_SIMILARITY_EXACT, ROOMS_SIMILARITY_ONE_DIFF, ROOMS_SIMILARITY_OTHER, ROOMS_SIMILARITY_THREE_DIFF, ROOMS_SIMILARITY_TWO_DIFF } from "@core/constants/roomsSimilarityConstants"
 import type { RecommendationResult } from "@core/interface/recommendationResultInterface"
 import type { RecommendationReasons } from "@core/types/recommendationTypes"
 import type { Property } from "@properties/interface/PropertyInterface"
-import { RECOMMENDATION_REASON_KEYS } from "utils/recomendation.util"
 
 /**
  * SmartRecommendationEngine
@@ -188,20 +188,22 @@ export class SmartRecommendationEngine {
             // If no specific reasons, add the best feature
             if (Object.keys(reasons).length === 0) {
                 const scores = { locationScore, typeScore, priceScore, sizeScore, roomsScore } as const
+                
                 type ScoreKey = keyof typeof scores
+
                 const bestFeature = (Object.keys(scores) as ScoreKey[]).reduce((a, b) =>
                     scores[a] > scores[b] ? a : b
                 )
 
                 switch (bestFeature) {
                     case "priceScore":
-                        reasons[RECOMMENDATION_REASON_KEYS.COMPATIBLE_PRICE_RANGE] = candidate.price
+                        reasons[RECOMMENDATION_REASON_KEYS.COMPATIBLE_PRICE_RANGE] = `Precio similar: ${candidate.price}`
                         break
                     case "sizeScore":
-                        reasons[RECOMMENDATION_REASON_KEYS.SUITABLE_SIZE] = candidate.squareMeters
+                        reasons[RECOMMENDATION_REASON_KEYS.SUITABLE_SIZE] = `Tamaño adecuado: ${candidate.squareMeters}`
                         break
                     case "roomsScore":
-                        reasons[RECOMMENDATION_REASON_KEYS.SIMILAR_DISTRIBUTION] = candidate.bedrooms
+                        reasons[RECOMMENDATION_REASON_KEYS.SIMILAR_DISTRIBUTION] = `Distribución similar: ${candidate.bedrooms}`
                         break
                     default:
                         reasons[RECOMMENDATION_REASON_KEYS.INTERESTING_OPTION] = ""
