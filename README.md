@@ -109,6 +109,7 @@ src/
 - El motor utiliza un sistema de puntaje ponderado para comparar propiedades.
 - Cada recomendación incluye un objeto `reasons` con claves como `same_city`, `similar_price`, etc., y sus valores correspondientes.
 - Puedes personalizar los pesos y umbrales en `src/features/core/constants/recommendationWeightConstants.ts`.
+- Para visualizar este flujo, podes visitar el [Diagrama de Flujo del Motor de Recomendación](https://www.mermaidchart.com/app/projects/8ab99a6a-372e-4fcd-b505-90720a9ad5a2/diagrams/6648ba5a-f372-4af0-9ed5-07b3cfd7ca0c/version/v0.1/edit).
 
 ## Alias
 
