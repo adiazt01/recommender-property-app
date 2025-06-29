@@ -1,0 +1,26 @@
+# Dependencias y salidas de construcción
+node_modules
+dist
+dist-ssr
+*.local
+
+# Directorios y archivos de editores
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.lock
+
+# Archivos de registro
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
