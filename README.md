@@ -46,7 +46,7 @@ Un sistema inteligente de recomendación inmobiliaria construido con React, Type
 ### Instalación
 
 ```bash
-git clone https://github.com/your-username/recommender-property-app.git
+git clone https://github.com/adiazt01/recommender-property-app.git
 cd recommender-property-app
 npm install
 # o
